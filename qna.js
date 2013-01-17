@@ -827,6 +827,9 @@ var drawTextToCanvas = function(text, x, y, size, color, font){
  
  state_ = gapi.hangout.data.getState();
  participants_ = gapi.hangout.getParticipants();
+
+ console.log("mirror: " + gapi.hangout.av.isLocalParticipantVideoMirrored());
+ gapi.hangout.av.setLocalParticipantVideoMirrored(false);
  
  var delta = {};
  if(!state_.question)
@@ -857,8 +860,6 @@ var drawTextToCanvas = function(text, x, y, size, color, font){
                                            updateLocalParticipantsData(partChangeEvent.participants);
                                            });
  
- gapi.hangout.av.setLocalParticipantVideoMirrored(false);
- console.log("mirror: " + gapi.hangout.av.isLocalParticipantVideoMirrored());
  
  if (!state_) {
  var state = gapi.hangout.data.getState();
